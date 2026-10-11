@@ -1,0 +1,21 @@
+---
+title: "Introduction to taxaudit"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to taxaudit}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Overview
+The `taxaudit` package automates taxonomic diagnosability assessment using discrete morphological ontologies and pairwise character-state comparisons tailored for floristic works like the *Flora of Pakistan*.
+
+## Quick Start Example
+```{r setup}
+library(taxaudit)
+t1 <- "Plants annual. Leaves ovate, arrangement basal, margins entire, indumentum glabrous, flowers yellow, fruit achene."
+t2 <- "Plants perennial. Leaves lanceolate, arrangement alternate, margins serrate, indumentum pubescent, flowers white, fruit capsule."
+chars1 <- ta_extract_characters(t1)
+chars2 <- ta_extract_characters(t2)
+ta_pairwise_di(chars1, chars2)
+```
