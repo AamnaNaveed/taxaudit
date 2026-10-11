@@ -2,8 +2,8 @@ Package: taxaudit
 Type: Package
 Title: Taxonomic Ambiguity Diagnosis in Floristic Databases
 Version: 0.1.0
-Author: Taxonomic Research Team
-Maintainer: Research Maintainer <maintainer@example.com>
+Author: Aamna Naveed [aut, cre]
+Maintainer: Aamna Naveed <naamna588@gmail.com>
 Description: Provides diagnostic tools and pairwise diagnosability indices for taxonomic ambiguity analysis, with specialized support for the flora of Pakistan.
 License: MIT + file LICENSE
 Encoding: UTF-8
