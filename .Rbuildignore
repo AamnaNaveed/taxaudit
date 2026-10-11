@@ -1,2 +1,4 @@
 ^data-raw$
 ^LICENSE\.md$
+^CRAN-SUBMISSION$
+^cran-comments\.md$
