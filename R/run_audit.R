@@ -13,6 +13,6 @@ ta_run_audit <- function(url) {
   message("Step 3: Calculating diagnosability metrics...")
   scored_df <- ta_pairwise_di(parsed_df)
   
-  message("Audit pipeline completed successfully!")
+  message("taxaudit pipeline completed successfully!")
   return(scored_df)
 }

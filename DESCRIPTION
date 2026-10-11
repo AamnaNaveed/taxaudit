@@ -1,17 +1,25 @@
 Package: taxaudit
 Type: Package
-Title: Taxonomic Diagnosability Auditing for Flora Data
+Title: Taxonomic Ambiguity Diagnosis in Floristic Databases
 Version: 0.1.0
 Author: Taxonomic Research Team
-Maintainer: Researcher <user@example.com>
-Description: Provides modular tools to ingest, parse, resolve names, and evaluate taxonomic diagnosability scores for floristic treatments (such as eFloras).
+Maintainer: Research Maintainer <maintainer@example.com>
+Description: Provides diagnostic tools and pairwise diagnosability indices for taxonomic ambiguity analysis, with specialized support for the flora of Pakistan.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports:
-    rvest,
-    xml2,
-    httr2,
-    digest
 Roxygen: list(markdown = TRUE)
+Imports: 
+    digest,
+    furrr,
+    future,
+    ggplot2,
+    httr2,
+    rvest,
+    utils,
+    xml2
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
 Config/roxygen2/version: 8.1.0

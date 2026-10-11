@@ -1,8 +1,15 @@
 #' Generate Automated Taxonomic Audit Report
+#'
+#' @description Generates automated taxonomic ambiguity reports for floristic datasets.
+#' @importFrom utils combn write.csv
+#' @import ggplot2
+#' @import furrr
+#' @import future
 #' @param flora_list Named list of taxon descriptions.
 #' @param output_dir Directory path to save output reports and data.
 #' @return Invisibly returns a list containing audit summary statistics and results.
 #' @export
+
 ta_generate_report <- function(flora_list, output_dir = 'inst/output') {
   if (!dir.exists(output_dir)) dir.create(output_dir, recursive = TRUE)
   
@@ -56,7 +63,7 @@ ta_generate_report <- function(flora_list, output_dir = 'inst/output') {
     ambiguous_pairs = batch_results[batch_results$DI_Score == 0, ]
   )
   
-  message(sprintf('Audit complete! Evaluated %d taxa (%d pairs). Saved reports to %s',
+  message(sprintf('taxaudit complete! Evaluated %d taxa (%d pairs). Saved reports to %s',
                   summary_stats$total_taxa, summary_stats$total_pairs, output_dir))
   
   invisible(list(summary = summary_stats, data = batch_results))

@@ -11,3 +11,10 @@ export(ta_plot_heatmap)
 export(ta_resolve_names)
 export(ta_run_audit)
 export(ta_run_batch_audit)
+import(furrr)
+import(future)
+import(ggplot2)
+importFrom(utils,
+  combn,
+  write.csv
+)

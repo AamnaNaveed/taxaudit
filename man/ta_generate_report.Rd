@@ -15,5 +15,5 @@ ta_generate_report(flora_list, output_dir = "inst/output")
 Invisibly returns a list containing audit summary statistics and results.
 }
 \description{
-Generate Automated Taxonomic Audit Report
+Generates automated taxonomic ambiguity reports for floristic datasets.
 }
