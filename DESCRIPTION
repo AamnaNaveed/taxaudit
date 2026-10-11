@@ -9,6 +9,8 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
+    rvest,
+    xml2,
     httr2,
     digest
 Roxygen: list(markdown = TRUE)

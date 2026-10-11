@@ -1,17 +1,35 @@
-#' Calculate basic taxonomic diagnosability metrics
-#' 
-#' @param parsed_df Data frame containing parsed treatment text.
-#' @return A data frame with added diagnosability scores.
+#' Calculate Pairwise Diagnosability Index (DI) between two species character profiles
+#' @param chars1 Named list of character states for species 1.
+#' @param chars2 Named list of character states for species 2.
+#' @return A list containing the DI score and differentiating characters.
 #' @export
-ta_calculate_diagnosability <- function(parsed_df) {
-  if (nrow(parsed_df) == 0) {
-    return(parsed_df)
+ta_pairwise_di <- function(chars1, chars2) {
+  common_categories <- intersect(names(chars1), names(chars2))
+  
+  diff_count <- 0
+  total_compared <- 0
+  differentiating_chars <- list()
+  
+  for (cat in common_categories) {
+    set1 <- chars1[[cat]]
+    set2 <- chars2[[cat]]
+    
+    if (length(set1) > 0 || length(set2) > 0) {
+      total_compared <- total_compared + 1
+      # Check for non-overlapping states
+      symmetric_diff <- union(setdiff(set1, set2), setdiff(set2, set1))
+      if (length(symmetric_diff) > 0) {
+        diff_count <- diff_count + 1
+        differentiating_chars[[cat]] <- symmetric_diff
+      }
+    }
   }
   
-  # Simple proxy metric: presence of key diagnostic keywords or length
-  # (Can be expanded later with character matrix overlaps)
-  parsed_df$diagnosability_score <- pmin(1.0, parsed_df$extracted_text_length / 5000)
-  parsed_df$audit_status <- ifelse(parsed_df$diagnosability_score > 0.2, "Pass", "Review Needed")
+  di_score <- ifelse(total_compared > 0, diff_count / total_compared, 0)
   
-  return(parsed_df)
+  list(
+    di_score = di_score,
+    is_diagnosable = (di_score > 0),
+    differentiating_characters = differentiating_chars
+  )
 }
