@@ -2,16 +2,18 @@
 % Please edit documentation in R/resolve_names.R
 \name{ta_resolve_names}
 \alias{ta_resolve_names}
-\title{Clean and resolve taxonomic names}
+\title{Resolve and Standardize Taxonomic Names}
 \usage{
-ta_resolve_names(names_vector)
+ta_resolve_names(taxon_names, synonym_db = NULL)
 }
 \arguments{
-\item{names_vector}{Character vector of raw taxons.}
+\item{taxon_names}{Character vector of taxon names to resolve.}
+
+\item{synonym_db}{Optional data frame containing 'Synonym' and 'Accepted' columns. If NULL, uses built-in default mappings.}
 }
 \value{
-A data frame with original and cleaned names.
+A data frame containing original names, resolved accepted names, and resolution status.
 }
 \description{
-Clean and resolve taxonomic names
+Resolve and Standardize Taxonomic Names
 }

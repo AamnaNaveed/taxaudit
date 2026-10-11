@@ -1,22 +1,31 @@
-#' Clean and resolve taxonomic names
-#' 
-#' @param names_vector Character vector of raw taxons.
-#' @return A data frame with original and cleaned names.
+#' Resolve and Standardize Taxonomic Names
+#' @param taxon_names Character vector of taxon names to resolve.
+#' @param synonym_db Optional data frame containing 'Synonym' and 'Accepted' columns. If NULL, uses built-in default mappings.
+#' @return A data frame containing original names, resolved accepted names, and resolution status.
 #' @export
-ta_resolve_names <- function(names_vector) {
-  if (length(names_vector) == 0) {
-    return(data.frame(raw_name = character(0), cleaned_name = character(0), stringsAsFactors = FALSE))
+ta_resolve_names <- function(taxon_names, synonym_db = NULL) {
+  if (is.null(synonym_db)) {
+    synonym_db <- data.frame(
+      Synonym = c('Ranunculus sceleratus var. indica', 'Polygonum plebeium var. elegans', 'Rosa webbiana var. microphylla'),
+      Accepted = c('Ranunculus sceleratus', 'Polygonum plebeium', 'Rosa webbiana'),
+      stringsAsFactors = FALSE
+    )
   }
   
-  # Basic string cleaning (strip trailing whitespace, authors if standard, etc.)
-  cleaned <- trimws(names_vector)
-  
-  result <- data.frame(
-    raw_name = names_vector,
-    cleaned_name = cleaned,
-    resolved_status = "Pending Check",
+  resolved_df <- data.frame(
+    Original_Name = taxon_names,
+    Accepted_Name = taxon_names,
+    Status = 'Accepted',
     stringsAsFactors = FALSE
   )
   
-  return(result)
+  for (i in seq_along(taxon_names)) {
+    match_idx <- match(taxon_names[i], synonym_db$Synonym)
+    if (!is.na(match_idx)) {
+      resolved_df$Accepted_Name[i] <- synonym_db$Accepted[match_idx]
+      resolved_df$Status[i] <- 'Synonym Resolved'
+    }
+  }
+  
+  return(resolved_df)
 }
