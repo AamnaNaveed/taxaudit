@@ -8,7 +8,8 @@ Description: Provides modular tools to ingest, parse, resolve names, and evaluat
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.3.1
 Imports:
     httr2,
     digest
+Roxygen: list(markdown = TRUE)
+Config/roxygen2/version: 8.1.0
