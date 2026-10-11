@@ -1,0 +1,14 @@
+Package: taxaudit
+Type: Package
+Title: Taxonomic Diagnosability Auditing for Flora Data
+Version: 0.1.0
+Author: Taxonomic Research Team
+Maintainer: Researcher <user@example.com>
+Description: Provides modular tools to ingest, parse, resolve names, and evaluate taxonomic diagnosability scores for floristic treatments (such as eFloras).
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.1
+Imports:
+    httr2,
+    digest
