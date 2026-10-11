@@ -3,6 +3,7 @@
 export(ta_contrast_table)
 export(ta_extract_characters)
 export(ta_fetch_treatment)
+export(ta_generate_report)
 export(ta_get_ontology)
 export(ta_pairwise_di)
 export(ta_parse_treatment)
