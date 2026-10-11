@@ -1,13 +1,14 @@
 Package: taxaudit
 Type: Package
-Title: Taxonomic Ambiguity Diagnosis in Floristic Databases
+Title: Taxonomic Audit, Character Ontology, and Pairwise Diagnosability
 Version: 0.1.0
-Author: Aamna Naveed [aut, cre]
-Maintainer: Aamna Naveed <naamna588@gmail.com>
-Description: Provides diagnostic tools and pairwise diagnosability indices for taxonomic ambiguity analysis, with specialized support for the flora of Pakistan.
+Authors@R: person(given = "Aamna",
+                family = "Naveed",
+                role = c("aut", "cre"),
+                email = "naamna588@gmail.com")
+Description: Provides tools for floristic taxonomic name resolution, synonymy checking, character ontology management, and pairwise diagnosability scoring to support data auditing and biodiversity research workflows.
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 Roxygen: list(markdown = TRUE)
 Imports: 
     digest,
@@ -20,6 +21,10 @@ Imports:
     xml2
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
 VignetteBuilder: knitr
+Depends: 
+    R (>= 4.1.0)
 Config/roxygen2/version: 8.1.0
