@@ -11,7 +11,7 @@ ta_run_audit <- function(url) {
   parsed_df <- ta_parse_treatment(cached_file)
   
   message("Step 3: Calculating diagnosability metrics...")
-  scored_df <- ta_calculate_diagnosability(parsed_df)
+  scored_df <- ta_pairwise_di(parsed_df)
   
   message("Audit pipeline completed successfully!")
   return(scored_df)

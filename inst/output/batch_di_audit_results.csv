@@ -1,0 +1,7 @@
+"Taxon_1","Taxon_2","DI_Score","Is_Diagnosable"
+"Ranunculus sceleratus","Ranunculus hirtellus",1,TRUE
+"Ranunculus sceleratus","Ranunculus muricatus",0.5,TRUE
+"Ranunculus sceleratus","Ranunculus laetus",0.5,TRUE
+"Ranunculus hirtellus","Ranunculus muricatus",1,TRUE
+"Ranunculus hirtellus","Ranunculus laetus",1,TRUE
+"Ranunculus muricatus","Ranunculus laetus",0.75,TRUE

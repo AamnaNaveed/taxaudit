@@ -10,7 +10,7 @@ ta_parse_treatment(html_path)
 \item{html_path}{Character. Path to the cached HTML file.}
 }
 \value{
-A data frame containing extracted treatment fields.
+A data frame containing extracted treatment text and status.
 }
 \description{
 Parse a cached taxonomic treatment HTML file
