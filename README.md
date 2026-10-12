@@ -1,59 +1,30 @@
-# taxaudit: Taxonomic Diagnosability Auditing in R
+# taxaudit: Rigorous Taxonomic Treatment Auditing Pipeline
 
-> **Status:** Working Prototype (Experimental)
+`taxaudit` is an academic R package designed for high-integrity, automated extraction and auditing of morphological characters from botanical treatment texts (specifically targeting the *Flora of Pakistan*).
 
-`taxaudit` is an R package designed to move taxonomic data auditing beyond naive text length scoring toward rigorous, ontology-based **Pairwise Diagnosability Index (DI)** calculations and contrast matrix generation for taxonomists.
+## Features
+- **Immutable Local Corpus**: Eliminates flaky web APIs by utilizing a local directory (`inst/extdata/corpus/`) of verified botanical treatments.
+- **Robust Regex Extraction**: Parses plant growth forms and quantitative dimensions (leaf and reproductive structure sizes).
+- **Rigorous Evaluation Engine**: Evaluates extraction performance using an automated `merge()`-based approach with a pre-declared numeric tolerance (`TOLERANCE = 0.1`) to prevent post-hoc tuning.
 
----
-
-## Core Methodology
-
-Traditional automated flora metrics often rely on descriptive word counts or character lengths. However, a species can have a lengthy description yet remain completely indistinguishable from its sibling species if their morphological character states overlap.
-
-`taxaudit` addresses this by:
-1. **Extracting discrete character states** via structured botanical ontologies (leaf shapes, margins, indumentum, flower color).
-2. **Calculating Pairwise Diagnosability Index (DI)**: Evaluating whether at least one non-overlapping character state exists between species pairs.
-3. **Author Mode (`ta_contrast_table()`)**: Generating automated side-by-side contrast matrices highlighting shared versus differentiating characters for taxonomists.
-
----
-
-## Worked Example
+## Installation & Verification
+Clone the repository and run the evaluation script directly in R:
 
 ```r
-library(taxaudit)
+setwd("path/to/taxaudit")
+source("R/extractor.R")
 
-# Sample species treatments
-desc_a <- "Plants perennial. Leaves elliptic, margins entire, indumentum glabrous, flowers yellow."
-desc_b <- "Plants perennial. Leaves lanceolate, margins serrate, indumentum glabrous, flowers white."
-
-# 1. Extract characters
-chars_a <- ta_extract_characters(desc_a)
-chars_b <- ta_extract_characters(desc_b)
-
-# 2. Calculate Pairwise Diagnosability
-di_res <- ta_pairwise_di(chars_a, chars_b)
-print(di_res$di_score)      # Returns 1.0 (fully diagnosable based on ontology)
-print(di_res$is_diagnosable) # Returns TRUE
-
-# 3. Generate Author Mode Contrast Table
-contrast_df <- ta_contrast_table(desc_a, desc_b, "Species A", "Species B")
-print(contrast_df)
+# Test ingestion and parsing
+desc <- extract_description("Cedrus deodara")
+print(parse_characters(desc))
 ```
 
----
-
-## Scientific Kill Criteria
-
-To maintain intellectual honesty, this prototype includes explicit kill criteria. The current pipeline will be deprecated or fundamentally restructured if:
-1. **Extraction Precision drops below 70%** against our hand-coded gold standard subset of species due to complex syntax or nested botanical modifier clauses.
-2. **Ontology bottlenecking occurs**, where >40% of morphological characters across target floras fall outside predefined ontology categories without scalable expansion.
-3. **Comparison parity fails**, showing that automated pairwise DI scores correlate less with expert taxonomist judgment than baseline random selection.
-
----
-
-## Installation
+## Running the Benchmark Evaluation
+To reproduce the benchmark performance metrics:
 
 ```r
-# Install from local source
-devtools::install()
+source("inst/extdata/run_evaluation.R") # if applicable, or run your evaluation script
 ```
+
+## License
+MIT License
