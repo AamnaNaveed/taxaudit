@@ -1,7 +1,7 @@
 #' Fetch and Extract Morphological Characters from Flora of Pakistan Corpus
 #'
-#' @param taxon Character string of the taxon name (e.g. "Cedrus deodara")
-#' @return A character string of the treatment description
+#' @param taxon Character string of the taxon name
+#' @return Character string of treatment description
 #' @export
 extract_description <- function(taxon) {
   safe_name <- gsub(" ", "_", taxon)
@@ -12,46 +12,31 @@ extract_description <- function(taxon) {
     if (file.exists(local_path)) {
       corpus_path <- local_path
     } else {
-      warning("Taxon treatment not found in corpus: ", taxon)
       return(NA_character_)
     }
   }
-  
   treatment_text <- readLines(corpus_path, warn = FALSE)
   paste(treatment_text, collapse = " ")
 }
 
-#' Parse Structured Character States with High-Precision Regex
-#'
-#' @param text Character string of the botanical treatment
-#' @return A named vector of extracted character states
+#' Parse Structured Character States
+#' @param text Character string of treatment
+#' @return Named vector of extracted states
 #' @export
 parse_characters <- function(text) {
   if (is.na(text)) return(NULL)
   
-  # 1. Growth form extraction
-  gf <- NA_character_
-  if (grepl("Growth form:\\s*tree or large shrub", text, ignore.case = TRUE)) {
-    gf <- "tree"
-  } else if (grepl("tree", text, ignore.case = TRUE)) {
-    gf <- "tree"
-  }
+  gf <- if (grepl("Growth form:\\s*tree", text, ignore.case = TRUE)) "tree" else NA_character_
   
-  # 2. Helper to extract dimensional ranges following specific keywords
-  extract_dimension <- function(keyword, txt) {
-    # Look for keyword followed by 'measure' or text, then extract X.X-X.X pattern
+  extract_dim <- function(keyword, txt) {
     pattern <- paste0(keyword, "[^0-9]*([0-9]+\\.[0-9]+-[0-9]+\\.[0-9]+)")
-cz <- regmatches(txt, regexec(pattern, txt, ignore.case = TRUE))
-    if (length(cz[[1]]) >= 2) {
-      return(cz[[1]][2])
-    }
+    res <- regmatches(txt, regexec(pattern, txt, ignore.case = TRUE))
+    if (length(res[[1]]) >= 2) return(res[[1]][2])
     return(NA_character_)
   }
   
-  leaf_dim <- extract_dimension("Leaves", text)
-  rep_size <- extract_dimension("Reproductive structures", text)
-  if (is.na(rep_size)) rep_size <- extract_dimension("capsules", text)
-  if (is.na(rep_size)) rep_size <- extract_dimension("cones", text)
+  leaf_dim <- extract_dim("Leaves", text)
+  rep_size <- extract_dim("Reproductive structures", text)
   
   c(
     growth_form = gf,
