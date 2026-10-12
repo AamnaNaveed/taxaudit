@@ -21,7 +21,7 @@ extract_description <- function(taxon) {
   paste(treatment_text, collapse = " ")
 }
 
-#' Parse Structured Character States from Treatment Text
+#' Parse Structured Character States from Treatment Text with Context Anchors
 #'
 #' @param text Character string of the botanical treatment
 #' @return A named vector of extracted character states
@@ -31,14 +31,23 @@ parse_characters <- function(text) {
   
   # Extract growth form
   gf <- if (grepl("tree", text, ignore.case = TRUE)) "tree" else "shrub"
-  if (grepl("shrub or tree", text, ignore.case = TRUE)) gf <- "shrub_or_tree"
-  if (grepl("tree or shrub", text, ignore.case = TRUE)) gf <- "tree_or_shrub"
+  if (grepl("tree or large shrub", text, ignore.case = TRUE)) gf <- "tree_or_shrub"
   
-  # Find all numeric range patterns e.g. '2.5-5.0'
-  matches <- regmatches(text, gregexpr("[0-9]+\\.[0-9]+-[0-9]+\\.[0-9]+", text))[[1]]
+  # Context-anchored extraction for leaves and reproductive structures
+  extract_near <- function(keyword, txt) {
+    pos <- regexpr(keyword, txt, ignore.case = TRUE)
+    if (pos == -1) return(NA_character_)
+    # Extract a substring window around the keyword
+    window <- substr(txt, max(1, pos - 20), min(nchar(txt), pos + 80))
+    matches <- regmatches(window, gregexpr("[0-9]+\\.[0-9]+-[0-9]+\\.[0-9]+", window))[[1]]
+    if (length(matches) > 0) return(matches[1])
+    return(NA_character_)
+  }
   
-  leaf_dim <- if (length(matches) >= 1) matches[1] else NA_character_
-  rep_size <- if (length(matches) >= 2) matches[2] else NA_character_
+  leaf_dim <- extract_near("leaves", text)
+  rep_size <- extract_near("reproductive", text)
+  if (is.na(rep_size)) rep_size <- extract_near("capsules", text)
+  if (is.na(rep_size)) rep_size <- extract_near("cones", text)
   
   c(
     growth_form = gf,
