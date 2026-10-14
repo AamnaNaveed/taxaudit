@@ -7,9 +7,9 @@
 calculate_DI(taxon_a, taxon_b)
 }
 \arguments{
-\item{taxon_a}{Character vector or named vector of character states for taxon A}
+\item{taxon_a}{Character or numeric vector of character states for taxon A}
 
-\item{taxon_b}{Character vector or named vector of character states for taxon B}
+\item{taxon_b}{Character or numeric vector of character states for taxon B}
 }
 \value{
 A numeric value representing the Diagnosability Index (0 = identical, 1 = fully disjoint)

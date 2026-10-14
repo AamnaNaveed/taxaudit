@@ -2,6 +2,8 @@
 
 export(calculate_DI)
 export(extract_description)
+export(extract_real_traits)
+export(parse_botanical_range)
 export(ta_contrast_table)
 export(ta_extract_characters)
 export(ta_generate_report)
