@@ -1,18 +1,36 @@
-#' Run the full taxonomic audit pipeline for a given treatment URL
-#' 
-#' @param url Character. Treatment URL to audit.
-#' @return A list containing the parsed data, resolved names, and diagnosability score.
+#' Fetch botanical treatment for auditing
+#' @param taxon_or_path Character string of taxon name or file path
+#' @return Character string of treatment description
 #' @export
-ta_run_audit <- function(url) {
-  message("Step 1: Fetching treatment...")
-  cached_file <- ta_fetch_treatment(url)
+ta_fetch_treatment <- function(taxon_or_path) {
+  if (is.null(taxon_or_path) || is.na(taxon_or_path)) return(NA_character_)
   
-  message("Step 2: Parsing treatment...")
-  parsed_df <- ta_parse_treatment(cached_file)
+  if (file.exists(taxon_or_path)) {
+    paste(readLines(taxon_or_path, warn = FALSE), collapse = " ")
+  } else {
+    extract_description(taxon_or_path)
+  }
+}
+
+#' Run a complete botanical trait audit for a taxon
+#' @param taxon Character string name of the taxon or path to treatment file
+#' @return A structured list containing audit results and extracted traits
+#' @export
+ta_run_audit <- function(taxon) {
+  if (is.null(taxon) || is.na(taxon)) return(NULL)
   
-  message("Step 3: Calculating diagnosability metrics...")
-  scored_df <- ta_pairwise_di(parsed_df)
+  treatment_text <- ta_fetch_treatment(taxon)
+  if (is.na(treatment_text) || nchar(trimws(treatment_text)) == 0) {
+    warning("No treatment text found for taxon: ", taxon)
+    return(NULL)
+  }
   
-  message("taxaudit pipeline completed successfully!")
-  return(scored_df)
+  traits <- extract_real_traits(treatment_text)
+  
+  list(
+    taxon = taxon,
+    treatment_text = treatment_text,
+    extracted_traits = traits,
+    audit_timestamp = Sys.time()
+  )
 }

@@ -2,16 +2,16 @@
 % Please edit documentation in R/run_audit.R
 \name{ta_run_audit}
 \alias{ta_run_audit}
-\title{Run the full taxonomic audit pipeline for a given treatment URL}
+\title{Run a complete botanical trait audit for a taxon}
 \usage{
-ta_run_audit(url)
+ta_run_audit(taxon)
 }
 \arguments{
-\item{url}{Character. Treatment URL to audit.}
+\item{taxon}{Character string name of the taxon or path to treatment file}
 }
 \value{
-A list containing the parsed data, resolved names, and diagnosability score.
+A structured list containing audit results and extracted traits
 }
 \description{
-Run the full taxonomic audit pipeline for a given treatment URL
+Run a complete botanical trait audit for a taxon
 }

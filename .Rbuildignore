@@ -2,3 +2,7 @@
 ^LICENSE\.md$
 ^CRAN-SUBMISSION$
 ^cran-comments\.md$
+^docs$
+^extracted_results\.csv$
+^gold_standard\.csv$
+^gold_standard_benchmark\.csv$

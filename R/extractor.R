@@ -1,8 +1,9 @@
-#' Load a botanical treatment text from the corpus
-#' @param taxon_name Character string name of the taxon
+#' Load a multidimensional botanical treatment text from the corpus
+#' @param taxon Character string name of the taxon
 #' @return Character string of the treatment text
 #' @export
-extract_description <- function(taxon_name) {
+extract_description <- function(taxon) {
+  
   if (is.null(taxon_name) || is.na(taxon_name)) return(NA_character_)
   
   filename <- paste0(gsub(" ", "_", taxon_name), ".txt")
@@ -33,10 +34,12 @@ extract_description <- function(taxon_name) {
 #' @param text Character string of a botanical measurement fragment
 #' @return A list containing parsed numerical bounds and unit
 #' @export
+
 parse_botanical_range <- function(text) {
   if (is.na(text) || nchar(trimws(text)) == 0) return(NULL)
   
-  clean_txt <- gsub("[–—−]", "-", text)
+  # Safe unicode replacement for em-dashes, en-dashes, and minus signs
+  clean_txt <- gsub("[\u2013\u2014\u2212]", "-", text)
   clean_txt <- gsub("\\s+", " ", clean_txt)
   
   unit <- NA_character_

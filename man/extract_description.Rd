@@ -2,7 +2,7 @@
 % Please edit documentation in R/extractor.R, R/ingest_fetch.R
 \name{extract_description}
 \alias{extract_description}
-\title{Load a botanical treatment text from the corpus}
+\title{Load a multidimensional botanical treatment text from the corpus}
 \usage{
 extract_description(taxon)
 
@@ -10,8 +10,6 @@ extract_description(taxon)
 }
 \arguments{
 \item{taxon}{Character string specifying taxon name}
-
-\item{taxon_name}{Character string name of the taxon}
 }
 \value{
 Character string of the treatment text
@@ -19,7 +17,7 @@ Character string of the treatment text
 Character string containing extracted taxonomic description
 }
 \description{
-Load a botanical treatment text from the corpus
+Load a multidimensional botanical treatment text from the corpus
 
 Extract Description for a Given Taxon
 }
