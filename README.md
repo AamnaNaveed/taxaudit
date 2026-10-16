@@ -28,7 +28,11 @@ comparison <- ta_compare_baseline(corpus)
 ### Leakage-free evaluation
 eval_results <- ta_split_evaluation(corpus, split_by = "taxon")
 
+<<<<<<< HEAD
 ## **✨ Features
+=======
+✨ Features
+>>>>>>> f0afe7053fc2d471e23bb5db2fae272498b4d281
 - Plant Ontology (PO:0025034) alignment with exact character start/end span tracking.
 
 - Inter-annotator agreement auditing (ta_audit_agreement).
@@ -39,5 +43,5 @@ eval_results <- ta_split_evaluation(corpus, split_by = "taxon")
 
 - Fully passes R CMD check with 0 errors | 0 warnings | 0 notes.
 
-##📄 License
+📄 License
 MIT © Aamna Naveed
