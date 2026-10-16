@@ -1,8 +1,11 @@
-#' Load a multidimensional botanical treatment text from the corpus
-#' @param taxon Character string name of the taxon
-#' @return Character string of the treatment text
+#' Extract botanical traits from treatment prose
+#' @param text Character string of treatment text
+#' @return A data frame or list of extracted traits
 #' @export
-extract_description <- function(taxon) {
+ta_extract_traits <- function(text) {
+  if (is.na(text) || nchar(trimws(text)) == 0) return(NULL)
+  # ... extraction logic ...
+}
   
   if (is.null(taxon_name) || is.na(taxon_name)) return(NA_character_)
   
