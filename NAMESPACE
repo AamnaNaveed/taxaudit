@@ -2,10 +2,10 @@
 
 export(calculate_DI)
 export(extract_description)
-export(extract_real_traits)
 export(parse_botanical_range)
 export(ta_contrast_table)
 export(ta_extract_characters)
+export(ta_extract_traits)
 export(ta_fetch_treatment)
 export(ta_generate_report)
 export(ta_get_ontology)
