@@ -14,21 +14,21 @@ Publication-grade R package for ontology-mapped botanical trait extraction, agre
 remotes::install_github("AamnaNaveed/taxaudit")
 ```
 
-##Quick Start
+### **Quick Start**
 library(taxaudit)
 
-# Load benchmark corpus & extract traits
+### Load benchmark corpus & extract traits
 corpus <- ta_load_corpus()
 traits <- ta_extract_traits(corpus$text[1])
 
-# Audit agreement & baseline comparison
+### Audit agreement & baseline comparison
 agreement <- ta_audit_agreement(corpus)
 comparison <- ta_compare_baseline(corpus)
 
-# Leakage-free evaluation
+### Leakage-free evaluation
 eval_results <- ta_split_evaluation(corpus, split_by = "taxon")
 
-##✨ Features
+## **✨ Features
 - Plant Ontology (PO:0025034) alignment with exact character start/end span tracking.
 
 - Inter-annotator agreement auditing (ta_audit_agreement).
