@@ -18,15 +18,16 @@ install.packages("devtools")
 devtools::install()
   ```
   
-Features
-Context-Anchored Organ Feature Extractor: Extracts morphological traits (growth forms, leaf dimensions, and reproductive structure sizes) from unstructured taxonomic treatment text.
+   ### **Features**
+- Context-Anchored Organ Feature Extractor: Extracts morphological traits (growth forms, leaf dimensions, and reproductive structure sizes) from unstructured taxonomic treatment text.
 
-Automated Benchmark Auditing: Evaluates extractions against a gold standard dataset (gold_standard.csv) calculating Precision, Recall, and F1 Score.
+- Automated Benchmark Auditing: Evaluates extractions against a gold standard dataset (gold_standard.csv) calculating Precision, Recall, and F1 Score.
 
-Tolerance-Aware Range Matching: Evaluates numerical ranges against extreme and typical bounds using a strict tolerance threshold (TOLERANCE = 0.1).
+- Tolerance-Aware Range Matching: Evaluates numerical ranges against extreme and typical bounds using a strict tolerance threshold (TOLERANCE = 0.1).
 
-Zero-Defect Standard: Fully verified against R CMD standards with 0 errors, 0 warnings, and 0 notes.
-Quick Start & Benchmarking
+- Zero-Defect Standard: Fully verified against R CMD standards with 0 errors, 0 warnings, and 0 notes.
+
+### **Quick Start & Benchmarking**
 To run the full automated benchmark evaluation and view your Precision, Recall, and F1 performance metrics, execute the benchmark script included in the package:
 
 R
@@ -48,11 +49,11 @@ print(traits)
 Package Structure
 R/: Core package functions (extractor.R, fetcher.R, etc.)
 
-inst/extdata/: Corpus treatments and gold standard CSV files (gold_standard.csv).
+* inst/extdata/: Corpus treatments and gold standard CSV files (gold_standard.csv).
 
-inst/scripts/: Automated evaluation and auditing scripts (evaluate_extraction.R).
+* inst/scripts/: Automated evaluation and auditing scripts (evaluate_extraction.R).
 
-vignettes/: Detailed package documentation and usage guides.
+* vignettes/: Detailed package documentation and usage guides.
 
 License
 MIT © 2026 taxaudit Contributors.
