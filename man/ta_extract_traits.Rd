@@ -2,16 +2,16 @@
 % Please edit documentation in R/extractor.R
 \name{ta_extract_traits}
 \alias{ta_extract_traits}
-\title{Context-Anchored Organ Feature Extractor for Real Flora Prose}
+\title{Extract Traits with Evidence Spans and Ontology Terms}
 \usage{
-ta_extract_traits(text_or_taxon)
+ta_extract_traits(text)
 }
 \arguments{
-\item{text_or_taxon}{Character string of full treatment text OR taxon name}
+\item{text}{Character string containing treatment text.}
 }
 \value{
-A structured list of extracted organ traits
+A data frame containing extracted traits, character spans, and ontology metadata.
 }
 \description{
-Context-Anchored Organ Feature Extractor for Real Flora Prose
+Extract Traits with Evidence Spans and Ontology Terms
 }
