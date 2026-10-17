@@ -19,20 +19,20 @@ library(taxaudit)
 
 corpus <- ta_load_corpus()
 head(corpus)
-#>            Taxon      Character HandCoded_State Extracted_State
+#>            taxon      character handcoded_state extracted_state
 #> 1 Cedrus deodara    growth_form            tree            tree
 #> 2 Cedrus deodara leaf_length_cm         2.5-5.0         2.5-5.0
 #> 3 Cedrus deodara     cone_shape           conic           conic
 #> 4  Abies pindrow    growth_form            tree            tree
 #> 5  Abies pindrow leaf_length_cm         3.0-6.0         3.1-5.8
 #> 6  Abies pindrow   bark_texture        fissured          smooth
-#>                         Source_Sentence    Annotator       Date
-#> 1 Large evergreen tree up to 50 m tall. Aamna_Naveed 2026-06-06
-#> 2  Leaves needle-like, 2.5-5.0 cm long. Aamna_Naveed 2026-06-06
-#> 3      Cones ovoid-conic, 7-10 cm long. Aamna_Naveed 2026-06-06
-#> 4      Evergreen tree reaching 30-60 m. Aamna_Naveed 2026-06-06
-#> 5       Leaves linear, 3.0-6.0 cm long. Aamna_Naveed 2026-06-06
-#> 6      Bark dark gray, deeply fissured. Aamna_Naveed 2026-06-06
+#>                         source_sentence    annotator       date           text
+#> 1 Large evergreen tree up to 50 m tall. Aamna_Naveed 2026-06-06 Cedrus deodara
+#> 2  Leaves needle-like, 2.5-5.0 cm long. Aamna_Naveed 2026-06-06 Cedrus deodara
+#> 3      Cones ovoid-conic, 7-10 cm long. Aamna_Naveed 2026-06-06 Cedrus deodara
+#> 4      Evergreen tree reaching 30-60 m. Aamna_Naveed 2026-06-06  Abies pindrow
+#> 5       Leaves linear, 3.0-6.0 cm long. Aamna_Naveed 2026-06-06  Abies pindrow
+#> 6      Bark dark gray, deeply fissured. Aamna_Naveed 2026-06-06  Abies pindrow
 ```
 
 ## 2. Run Trait Extraction with Evidence Spans
@@ -98,7 +98,7 @@ taxon-held-out cross-validation:
 
 eval_split <- ta_split_evaluation(corpus, holdout_type = "taxon", target_holdout = "Cedrus deodara")
 cat("Training set size:", nrow(eval_split$train), "\n")
-#> Training set size: 0
+#> Training set size: 12
 cat("Test set size (held-out taxon):", nrow(eval_split$test), "\n")
-#> Test set size (held-out taxon): 0
+#> Test set size (held-out taxon): 3
 ```
