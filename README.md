@@ -3,9 +3,9 @@
 [![pkgdown](https://github.com/AamnaNaveed/taxaudit/actions/workflows/pkgdown.yaml/badge.svg)](https://aamnanaveed.github.io/taxaudit/)
 <!-- badges: end -->
 
+
 # taxaudit
 
-[![R-CMD-check](https://github.com/AamnaNaveed/taxaudit/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/AamnaNaveed/taxaudit/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Publication-grade R package for ontology-mapped botanical trait extraction, agreement auditing, and leakage-free evaluation.
@@ -33,7 +33,6 @@ comparison <- ta_compare_baseline(corpus)
 ### Leakage-free evaluation
 eval_results <- ta_split_evaluation(corpus, split_by = "taxon")
 
-<<<<<<< HEAD
 ## Features
 
 - Plant Ontology (PO:0025034) alignment with exact character start/end span tracking.
