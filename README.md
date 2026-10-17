@@ -1,3 +1,8 @@
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/AamnaNaveed/taxaudit/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/AamnaNaveed/taxaudit/actions/workflows/R-CMD-check.yaml)
+[![pkgdown](https://github.com/AamnaNaveed/taxaudit/actions/workflows/pkgdown.yaml/badge.svg)](https://aamnanaveed.github.io/taxaudit/)
+<!-- badges: end -->
+
 # taxaudit
 
 [![R-CMD-check](https://github.com/AamnaNaveed/taxaudit/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/AamnaNaveed/taxaudit/actions)
