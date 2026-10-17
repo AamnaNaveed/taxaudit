@@ -1,6 +1,6 @@
 # Compare Baseline vs Ontology-Mapped Extraction
 
-Compares naive baseline extraction performance against taxaudit
+Compares naive baseline extraction performance against the taxaudit
 pipeline.
 
 ## Usage
@@ -17,4 +17,4 @@ ta_compare_baseline(corpus)
 
 ## Value
 
-A summary data frame comparing entity yield and precision.
+A data frame containing comparative extraction metrics.
