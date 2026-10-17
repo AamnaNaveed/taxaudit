@@ -1,6 +1,5 @@
 # taxaudit
 
-[![R-CMD-check](https://github.com/AamnaNaveed/taxaudit/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/AamnaNaveed/taxaudit/actions)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -35,7 +34,7 @@ ta_compare_baseline(corpus)
 
 eval_results \<- ta_split_evaluation(corpus, split_by = “taxon”)
 
-\<\<\<\<\<\<\< HEAD \## Features
+## Features
 
 - Plant Ontology (PO:0025034) alignment with exact character start/end
   span tracking.
