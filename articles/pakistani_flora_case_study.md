@@ -19,15 +19,20 @@ library(taxaudit)
 
 corpus <- ta_load_corpus()
 head(corpus)
-#>   treatment_id            taxon            source
-#> 1     treat_01   Cedrus deodara Flora of Pakistan
-#> 2     treat_02 Pinus roxburghii Flora of Pakistan
-#>                                                                text
-#> 1 The species is a large tree. Leaves 5.5-10.2 cm long, lanceolate.
-#> 2               Tree up to 30m tall. Leaves 10-15 cm long, slender.
-#>   expected_trait expected_min expected_max unit span_start span_end ontology_id
-#> 1    leaf_length          5.5         10.2   cm         30       47  PO:0025034
-#> 2    leaf_length         10.0         15.0   cm         22       40  PO:0025034
+#>            Taxon      Character HandCoded_State Extracted_State
+#> 1 Cedrus deodara    growth_form            tree            tree
+#> 2 Cedrus deodara leaf_length_cm         2.5-5.0         2.5-5.0
+#> 3 Cedrus deodara     cone_shape           conic           conic
+#> 4  Abies pindrow    growth_form            tree            tree
+#> 5  Abies pindrow leaf_length_cm         3.0-6.0         3.1-5.8
+#> 6  Abies pindrow   bark_texture        fissured          smooth
+#>                         Source_Sentence    Annotator       Date
+#> 1 Large evergreen tree up to 50 m tall. Aamna_Naveed 2026-06-06
+#> 2  Leaves needle-like, 2.5-5.0 cm long. Aamna_Naveed 2026-06-06
+#> 3      Cones ovoid-conic, 7-10 cm long. Aamna_Naveed 2026-06-06
+#> 4      Evergreen tree reaching 30-60 m. Aamna_Naveed 2026-06-06
+#> 5       Leaves linear, 3.0-6.0 cm long. Aamna_Naveed 2026-06-06
+#> 6      Bark dark gray, deeply fissured. Aamna_Naveed 2026-06-06
 ```
 
 ## 2. Run Trait Extraction with Evidence Spans
@@ -42,10 +47,9 @@ coordinates:
 sample_text <- corpus$text[1]
 extracted_results <- ta_extract_traits(sample_text)
 print(extracted_results)
-#>         trait val_min val_max unit span_start span_end      evidence_text
-#> 1 leaf_length     5.5    10.2   cm         30       47 Leaves 5.5-10.2 cm
-#>   ontology_id
-#> 1  PO:0025034
+#> [1] trait         val_min       val_max       unit          span_start   
+#> [6] span_end      evidence_text ontology_id  
+#> <0 rows> (or 0-length row.names)
 ```
 
 ## 3. Inter-Annotator Agreement Audit
@@ -76,13 +80,13 @@ print(agreement)
 #> [1] 1
 #> 
 #> $matched_count
-#> [1] 1
+#> [1] 0
 #> 
 #> $total_a
-#> [1] 1
+#> [1] 0
 #> 
 #> $total_b
-#> [1] 1
+#> [1] 0
 ```
 
 ## 4. Held-Out Evaluation Strategy
@@ -94,7 +98,7 @@ taxon-held-out cross-validation:
 
 eval_split <- ta_split_evaluation(corpus, holdout_type = "taxon", target_holdout = "Cedrus deodara")
 cat("Training set size:", nrow(eval_split$train), "\n")
-#> Training set size: 1
+#> Training set size: 0
 cat("Test set size (held-out taxon):", nrow(eval_split$test), "\n")
-#> Test set size (held-out taxon): 1
+#> Test set size (held-out taxon): 0
 ```

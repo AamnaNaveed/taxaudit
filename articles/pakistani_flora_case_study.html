@@ -87,15 +87,20 @@ treatment text, exact character spans, and Plant Ontology IDs
 <span></span>
 <span><span class="va">corpus</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ta_load_corpus.html">ta_load_corpus</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">corpus</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   treatment_id            taxon            source</span></span>
-<span><span class="co">#&gt; 1     treat_01   Cedrus deodara Flora of Pakistan</span></span>
-<span><span class="co">#&gt; 2     treat_02 Pinus roxburghii Flora of Pakistan</span></span>
-<span><span class="co">#&gt;                                                                text</span></span>
-<span><span class="co">#&gt; 1 The species is a large tree. Leaves 5.5-10.2 cm long, lanceolate.</span></span>
-<span><span class="co">#&gt; 2               Tree up to 30m tall. Leaves 10-15 cm long, slender.</span></span>
-<span><span class="co">#&gt;   expected_trait expected_min expected_max unit span_start span_end ontology_id</span></span>
-<span><span class="co">#&gt; 1    leaf_length          5.5         10.2   cm         30       47  PO:0025034</span></span>
-<span><span class="co">#&gt; 2    leaf_length         10.0         15.0   cm         22       40  PO:0025034</span></span></code></pre></div>
+<span><span class="co">#&gt;            Taxon      Character HandCoded_State Extracted_State</span></span>
+<span><span class="co">#&gt; 1 Cedrus deodara    growth_form            tree            tree</span></span>
+<span><span class="co">#&gt; 2 Cedrus deodara leaf_length_cm         2.5-5.0         2.5-5.0</span></span>
+<span><span class="co">#&gt; 3 Cedrus deodara     cone_shape           conic           conic</span></span>
+<span><span class="co">#&gt; 4  Abies pindrow    growth_form            tree            tree</span></span>
+<span><span class="co">#&gt; 5  Abies pindrow leaf_length_cm         3.0-6.0         3.1-5.8</span></span>
+<span><span class="co">#&gt; 6  Abies pindrow   bark_texture        fissured          smooth</span></span>
+<span><span class="co">#&gt;                         Source_Sentence    Annotator       Date</span></span>
+<span><span class="co">#&gt; 1 Large evergreen tree up to 50 m tall. Aamna_Naveed 2026-06-06</span></span>
+<span><span class="co">#&gt; 2  Leaves needle-like, 2.5-5.0 cm long. Aamna_Naveed 2026-06-06</span></span>
+<span><span class="co">#&gt; 3      Cones ovoid-conic, 7-10 cm long. Aamna_Naveed 2026-06-06</span></span>
+<span><span class="co">#&gt; 4      Evergreen tree reaching 30-60 m. Aamna_Naveed 2026-06-06</span></span>
+<span><span class="co">#&gt; 5       Leaves linear, 3.0-6.0 cm long. Aamna_Naveed 2026-06-06</span></span>
+<span><span class="co">#&gt; 6      Bark dark gray, deeply fissured. Aamna_Naveed 2026-06-06</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="run-trait-extraction-with-evidence-spans">2. Run Trait Extraction with Evidence Spans<a class="anchor" aria-label="anchor" href="#run-trait-extraction-with-evidence-spans"></a>
@@ -108,10 +113,9 @@ coordinates:</p>
 <span><span class="va">sample_text</span> <span class="op">&lt;-</span> <span class="va">corpus</span><span class="op">$</span><span class="va">text</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
 <span><span class="va">extracted_results</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ta_extract_traits.html">ta_extract_traits</a></span><span class="op">(</span><span class="va">sample_text</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">extracted_results</span><span class="op">)</span></span>
-<span><span class="co">#&gt;         trait val_min val_max unit span_start span_end      evidence_text</span></span>
-<span><span class="co">#&gt; 1 leaf_length     5.5    10.2   cm         30       47 Leaves 5.5-10.2 cm</span></span>
-<span><span class="co">#&gt;   ontology_id</span></span>
-<span><span class="co">#&gt; 1  PO:0025034</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] trait         val_min       val_max       unit          span_start   </span></span>
+<span><span class="co">#&gt; [6] span_end      evidence_text ontology_id  </span></span>
+<span><span class="co">#&gt; &lt;0 rows&gt; (or 0-length row.names)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="inter-annotator-agreement-audit">3. Inter-Annotator Agreement Audit<a class="anchor" aria-label="anchor" href="#inter-annotator-agreement-audit"></a>
@@ -140,13 +144,13 @@ annotator and measure span-level agreement:</p>
 <span><span class="co">#&gt; [1] 1</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $matched_count</span></span>
-<span><span class="co">#&gt; [1] 1</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $total_a</span></span>
-<span><span class="co">#&gt; [1] 1</span></span>
+<span><span class="co">#&gt; [1] 0</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $total_b</span></span>
-<span><span class="co">#&gt; [1] 1</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] 0</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="held-out-evaluation-strategy">4. Held-Out Evaluation Strategy<a class="anchor" aria-label="anchor" href="#held-out-evaluation-strategy"></a>
@@ -156,9 +160,9 @@ using taxon-held-out cross-validation:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">eval_split</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/ta_split_evaluation.html">ta_split_evaluation</a></span><span class="op">(</span><span class="va">corpus</span>, holdout_type <span class="op">=</span> <span class="st">"taxon"</span>, target_holdout <span class="op">=</span> <span class="st">"Cedrus deodara"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="st">"Training set size:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">eval_split</span><span class="op">$</span><span class="va">train</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Training set size: 1</span></span>
+<span><span class="co">#&gt; Training set size: 0</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="st">"Test set size (held-out taxon):"</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">nrow</a></span><span class="op">(</span><span class="va">eval_split</span><span class="op">$</span><span class="va">test</span><span class="op">)</span>, <span class="st">"\n"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Test set size (held-out taxon): 1</span></span></code></pre></div>
+<span><span class="co">#&gt; Test set size (held-out taxon): 0</span></span></code></pre></div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
