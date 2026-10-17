@@ -10,8 +10,8 @@ ta_compare_baseline(corpus)
 \item{corpus}{Loaded corpus data frame.}
 }
 \value{
-A summary data frame comparing entity yield and precision.
+A data frame containing comparative extraction metrics.
 }
 \description{
-Compares naive baseline extraction performance against taxaudit pipeline.
+Compares naive baseline extraction performance against the taxaudit pipeline.
 }
