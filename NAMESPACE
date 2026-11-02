@@ -24,5 +24,6 @@ import(future)
 import(ggplot2)
 importFrom(utils,
   combn,
+  read.csv,
   write.csv
 )

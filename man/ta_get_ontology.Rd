@@ -6,6 +6,17 @@
 \usage{
 ta_get_ontology()
 }
+\value{
+A named \code{list} where each element represents a botanical trait
+category (e.g., leaf shape, indumentum) containing a character vector
+of valid state terms.
+}
 \description{
-Define standard botanical character ontology for Flora audits
+Retrieves the controlled vocabulary and categorical trait definitions
+used for botanical literature auditing.
+}
+\examples{
+ontology <- ta_get_ontology()
+names(ontology)
+head(ontology$leaf_shape)
 }

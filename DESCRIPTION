@@ -6,7 +6,11 @@ Authors@R: person(given = "Aamna",
                 family = "Naveed",
                 role = c("aut", "cre"),
                 email = "naamna588@gmail.com")
-Description: Provides tools for floristic taxonomic name resolution, synonymy checking, character ontology management, and pairwise diagnosability scoring to support data auditing and biodiversity research workflows.
+Description: Automates the extraction of morphological traits and taxonomic 
+    literature auditing from unstructured botanical treatments. Implements 
+    controlled ontology mapping, regular expression-based quantitative dimension 
+    parsing, benchmark corpus management, and comparative baseline evaluation 
+    protocols for biodiversity informatics.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
