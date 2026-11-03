@@ -14,8 +14,6 @@ Retrieves the gold-standard benchmark corpus containing plant treatments,
 morphological traits, and evidence spans from package internal files.
 }
 \examples{
-\dontrun{
 corpus <- ta_load_corpus()
 head(corpus)
-}
 }

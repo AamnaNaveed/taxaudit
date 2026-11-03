@@ -9,8 +9,7 @@
 #' @param output_dir Directory path to save output reports and data.
 #' @return Invisibly returns a list containing audit summary statistics and results.
 #' @export
-
-ta_generate_report <- function(flora_list, output_dir = 'inst/output') {
+ta_generate_report <- function(flora_list, output_dir = tempdir()) {
   if (!dir.exists(output_dir)) dir.create(output_dir, recursive = TRUE)
   
   message('Step 1: Running parallel character extraction...')
@@ -23,7 +22,6 @@ ta_generate_report <- function(flora_list, output_dir = 'inst/output') {
   message('Step 2: Computing pairwise diagnosability matrix...')
   s_names <- names(flora_list)
   combs <- combn(s_names, 2)
-  
   pairs_df <- data.frame(
     Taxon_1 = combs[1, ],
     Taxon_2 = combs[2, ],
@@ -65,7 +63,5 @@ ta_generate_report <- function(flora_list, output_dir = 'inst/output') {
   
   message(sprintf('taxaudit complete! Evaluated %d taxa (%d pairs). Saved reports to %s',
                   summary_stats$total_taxa, summary_stats$total_pairs, output_dir))
-  
   invisible(list(summary = summary_stats, data = batch_results))
 }
-

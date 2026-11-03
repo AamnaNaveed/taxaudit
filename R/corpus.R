@@ -1,6 +1,6 @@
 #' Load the Expert-Annotated Benchmark Corpus
 #'
-#' Retrieves the gold-standard benchmark corpus containing plant treatments, 
+#' Retrieves the gold-standard benchmark corpus containing plant treatments,
 #' morphological traits, and evidence spans from package internal files.
 #'
 #' @return A \code{data.frame} containing gold-standard plant treatments, traits, and evidence spans.
@@ -8,10 +8,8 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' corpus <- ta_load_corpus()
 #' head(corpus)
-#' }
 ta_load_corpus <- function() {
   path <- system.file('extdata', 'gold_standard_benchmark.csv', package = 'taxaudit')
   if (path == '' || !file.exists(path)) {
@@ -23,7 +21,6 @@ ta_load_corpus <- function() {
   df <- read.csv(path, stringsAsFactors = FALSE)
   
   # Standardize column names to lowercase
-  orig_names <- names(df)
   names(df) <- tolower(names(df))
   
   # Find text column

@@ -4,7 +4,7 @@
 \alias{ta_generate_report}
 \title{Generate Automated Taxonomic Audit Report}
 \usage{
-ta_generate_report(flora_list, output_dir = "inst/output")
+ta_generate_report(flora_list, output_dir = tempdir())
 }
 \arguments{
 \item{flora_list}{Named list of taxon descriptions.}
