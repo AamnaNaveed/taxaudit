@@ -55,10 +55,22 @@ morphological traits, and evidence spans from package internal files.</p>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span><span class="va">corpus</span> <span class="op">&lt;-</span> <span class="fu">ta_load_corpus</span><span class="op">(</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">corpus</span> <span class="op">&lt;-</span> <span class="fu">ta_load_corpus</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">corpus</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>            taxon      character handcoded_state extracted_state</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Cedrus deodara    growth_form            tree            tree</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 Cedrus deodara leaf_length_cm         2.5-5.0         2.5-5.0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 Cedrus deodara     cone_shape           conic           conic</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  Abies pindrow    growth_form            tree            tree</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  Abies pindrow leaf_length_cm         3.0-6.0         3.1-5.8</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  Abies pindrow   bark_texture        fissured          smooth</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                         source_sentence    annotator       date           text</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Large evergreen tree up to 50 m tall. Aamna_Naveed 2026-06-06 Cedrus deodara</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  Leaves needle-like, 2.5-5.0 cm long. Aamna_Naveed 2026-06-06 Cedrus deodara</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3      Cones ovoid-conic, 7-10 cm long. Aamna_Naveed 2026-06-06 Cedrus deodara</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      Evergreen tree reaching 30-60 m. Aamna_Naveed 2026-06-06  Abies pindrow</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5       Leaves linear, 3.0-6.0 cm long. Aamna_Naveed 2026-06-06  Abies pindrow</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6      Bark dark gray, deeply fissured. Aamna_Naveed 2026-06-06  Abies pindrow</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

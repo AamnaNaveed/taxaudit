@@ -5,7 +5,7 @@ Generates automated taxonomic ambiguity reports for floristic datasets.
 ## Usage
 
 ``` r
-ta_generate_report(flora_list, output_dir = "inst/output")
+ta_generate_report(flora_list, output_dir = tempdir())
 ```
 
 ## Arguments
