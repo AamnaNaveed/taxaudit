@@ -62,14 +62,9 @@
 <h2 id="package-installation">📦 Installation<a class="anchor" aria-label="anchor" href="#package-installation"></a>
 </h2>
 <p>You can install the official released version of <code>taxaudit</code> directly from CRAN:</p>
-<p>```r install.packages(“taxaudit”) If you want to install the latest development version from GitHub:</p>
-<p>r # install.packages(“remotes”) remotes::install_github(“AamnaNaveed/taxaudit”)</p>
-<div class="section level3">
-<h3 id="quick-start">
-<strong>Quick Start</strong><a class="anchor" aria-label="anchor" href="#quick-start"></a>
-</h3>
-<p>library(taxaudit)</p>
-</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"taxaudit"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>If you want to install the latest development version from GitHub<span class="sc">:</span></span></code></pre></div>
+<p>r # install.packages(“remotes”) remotes::install_github(“AamnaNaveed/taxaudit”) 🚀 Quick Start r library(taxaudit)</p>
 </div>
 </div>
 <div class="section level1">
@@ -85,31 +80,14 @@
 <div class="section level1">
 <h1 id="leakage-free-evaluation">Leakage-free evaluation<a class="anchor" aria-label="anchor" href="#leakage-free-evaluation"></a>
 </h1>
-<p>eval_results &lt;- ta_split_evaluation(corpus, split_by = “taxon”)</p>
-<div class="section level2">
-<h2 id="features">Features<a class="anchor" aria-label="anchor" href="#features"></a>
-</h2>
-<ul>
-<li><p>Plant Ontology (PO:0025034) alignment with exact character start/end span tracking.</p></li>
-<li><p>Inter-annotator agreement auditing (ta_audit_agreement).</p></li>
-<li><p>Leakage-free taxon-held-out cross-validation (ta_split_evaluation).</p></li>
-<li><p>Baseline comparison module against naive regex (ta_compare_baseline).</p></li>
-<li><p>Fully passes R CMD check with 0 errors | 0 warnings | 0 notes.</p></li>
-</ul>
-</div>
-<div class="section level2">
-<h2 id="pencil-citation">📝 Citation<a class="anchor" aria-label="anchor" href="#pencil-citation"></a>
-</h2>
-<p>If you use <code>taxaudit</code> in your research, please cite the CRAN package:</p>
-<blockquote>
+<p>eval_results &lt;- ta_split_evaluation(corpus, split_by = “taxon”) ✨ Features Ontology Mapping: Plant Ontology (PO:0025034) alignment with exact character start/end span tracking.</p>
+<p>Agreement Auditing: Inter-annotator agreement auditing (ta_audit_agreement).</p>
+<p>Rigorous Validation: Leakage-free taxon-held-out cross-validation (ta_split_evaluation).</p>
+<p>Baseline Comparison: Module against naive regex for benchmark evaluation (ta_compare_baseline).</p>
+<p>Quality Assured: Fully passes R CMD check with 0 errors | 0 warnings | 0 notes.</p>
+<p>📝 Citation If you use taxaudit in your research, please cite the CRAN package:</p>
 <p>Naveed, A. (2026). taxaudit: Taxonomic Audit, Character Ontology, and Pairwise Diagnosability. R package version 0.1.0. <a href="https://CRAN.R-project.org/package=taxaudit" class="external-link uri">https://CRAN.R-project.org/package=taxaudit</a></p>
-</blockquote>
-</div>
-<div class="section level2">
-<h2 id="page_facing_up-license">📄 License<a class="anchor" aria-label="anchor" href="#page_facing_up-license"></a>
-</h2>
-<p>MIT © Aamna Naveed</p>
-</div>
+<p>📄 License MIT © Aamna Naveed</p>
 </div>
 
   </main><aside class="col-md-3"><div class="links">
