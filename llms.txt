@@ -1,36 +1,44 @@
 # taxaudit
 
-[![License:
-MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+**Taxonomic Audit, Character Ontology, and Pairwise Diagnosability**
 
-Publication-grade R package for ontology-mapped botanical trait
-extraction, agreement auditing, and leakage-free evaluation.
+Official CRAN Package: <https://CRAN.R-project.org/package=taxaudit>
+
+A publication-grade R package for automating the extraction of
+morphological traits and taxonomic literature auditing from unstructured
+botanical treatments. It implements controlled ontology mapping, regular
+expression-based quantitative dimension parsing, benchmark corpus
+management, and comparative baseline evaluation protocols for
+biodiversity informatics.
 
 ------------------------------------------------------------------------
 
 ## 📦 Installation
 
-``` r
+You can install the official released version of `taxaudit` directly
+from CRAN:
 
-# install.packages("remotes")
-remotes::install_github("AamnaNaveed/taxaudit")
-```
+\`\`\`r install.packages(“taxaudit”) If you want to install the latest
+development version from GitHub:
+
+r \# install.packages(“remotes”)
+remotes::install_github(“AamnaNaveed/taxaudit”)
 
 ### **Quick Start**
 
 library(taxaudit)
 
-### Load benchmark corpus & extract traits
+# Load benchmark corpus & extract traits
 
 corpus \<- ta_load_corpus() traits \<-
 ta_extract_traits(corpus\$text\[1\])
 
-### Audit agreement & baseline comparison
+# Audit agreement & baseline comparison
 
 agreement \<- ta_audit_agreement(corpus) comparison \<-
 ta_compare_baseline(corpus)
 
-### Leakage-free evaluation
+# Leakage-free evaluation
 
 eval_results \<- ta_split_evaluation(corpus, split_by = “taxon”)
 
@@ -46,6 +54,14 @@ eval_results \<- ta_split_evaluation(corpus, split_by = “taxon”)
 - Baseline comparison module against naive regex (ta_compare_baseline).
 
 - Fully passes R CMD check with 0 errors \| 0 warnings \| 0 notes.
+
+## 📝 Citation
+
+If you use `taxaudit` in your research, please cite the CRAN package:
+
+> Naveed, A. (2026). taxaudit: Taxonomic Audit, Character Ontology, and
+> Pairwise Diagnosability. R package version 0.1.0.
+> <https://CRAN.R-project.org/package=taxaudit>
 
 ## 📄 License
 

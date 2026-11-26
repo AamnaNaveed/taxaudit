@@ -2,6 +2,8 @@
 
 ## taxaudit 0.1.0
 
+CRAN release: 2026-11-25
+
 - Initial public release of `taxaudit`.
 - Added curated benchmark corpus loading (`ta_load_corpus`) mapped to
   Plant Ontology (`PO:0025034`).
