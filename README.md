@@ -23,12 +23,12 @@ You can install the official released version of `taxaudit` directly from CRAN:
 ```r
 install.packages("taxaudit")
 If you want to install the latest development version from GitHub:
-
+```
 r
 # install.packages("remotes")
 remotes::install_github("AamnaNaveed/taxaudit")
-
-### **Quick Start**
+🚀 Quick Start
+r
 library(taxaudit)
 
 # Load benchmark corpus & extract traits
@@ -41,25 +41,21 @@ comparison <- ta_compare_baseline(corpus)
 
 # Leakage-free evaluation
 eval_results <- ta_split_evaluation(corpus, split_by = "taxon")
+✨ Features
+Ontology Mapping: Plant Ontology (PO:0025034) alignment with exact character start/end span tracking.
 
+Agreement Auditing: Inter-annotator agreement auditing (ta_audit_agreement).
 
-## Features
+Rigorous Validation: Leakage-free taxon-held-out cross-validation (ta_split_evaluation).
 
-- Plant Ontology (PO:0025034) alignment with exact character start/end span tracking.
+Baseline Comparison: Module against naive regex for benchmark evaluation (ta_compare_baseline).
 
-- Inter-annotator agreement auditing (ta_audit_agreement).
+Quality Assured: Fully passes R CMD check with 0 errors | 0 warnings | 0 notes.
 
-- Leakage-free taxon-held-out cross-validation (ta_split_evaluation).
+📝 Citation
+If you use taxaudit in your research, please cite the CRAN package:
 
-- Baseline comparison module against naive regex (ta_compare_baseline).
+Naveed, A. (2026). taxaudit: Taxonomic Audit, Character Ontology, and Pairwise Diagnosability. R package version 0.1.0. https://CRAN.R-project.org/package=taxaudit
 
-- Fully passes R CMD check with 0 errors | 0 warnings | 0 notes.
-
-## 📝 Citation
-
-If you use `taxaudit` in your research, please cite the CRAN package:
-
-> Naveed, A. (2026). taxaudit: Taxonomic Audit, Character Ontology, and Pairwise Diagnosability. R package version 0.1.0. https://CRAN.R-project.org/package=taxaudit
-
-## 📄 License
+📄 License
 MIT © Aamna Naveed
